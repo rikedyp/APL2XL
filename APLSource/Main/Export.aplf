@@ -11,8 +11,7 @@
      ⍝. ⍵.Sheets[n].Ranges[n].Address      ←→ address can be either indices i.e. ←→ 0 0 (at cell A1) or cell string i.e. ←→ 'A1' (at index 0 0)
 
      ⍝. Validation
-     0::⎕SIGNAL⊂⎕DMX.(('EN'EN)('Message'Message))
-     3 6::⎕SIGNAL⊂('EN' 16)('Message' '.NET unavailable')
+     0::⎕SIGNAL⊂⎕DMX.(('EN'EN)('Message'Message))     
      777::⎕SIGNAL⊂('EN' 11)('Message'GetErrorMessage)
      ∨/2<≢∘⍴¨(∊(,⍵.Sheets).Ranges).Value:⎕SIGNAL⊂('EN' 4)('Message' 'Range values must be less than rank 3')
      ∨/2<≡¨(∊(,⍵.Sheets).Ranges).Value:⎕SIGNAL⊂('EN' 11)('Message' 'Range values must be less than depth 3')('EM' 'DEPTH ERROR')
@@ -54,5 +53,6 @@
      }
 
      _←wb sheets¨nameSheets ⍵.Sheets
+     6::⎕SIGNAL⊂('EN' 16)('Message' '.NET unavailable')
      ##.Main.Build.CompileXML wb ⍝. Compile the workbook file as a .xlsx zipped directory
  }
